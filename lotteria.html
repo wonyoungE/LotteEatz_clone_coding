@@ -25,6 +25,7 @@
         font-size: 14px;
         font-weight: 400;
         font-style: normal;
+        /* background-color: white; */
       }
       /* whole-wrapper */
       #wrapper {
@@ -37,7 +38,7 @@
       }
       /* Header */
       #header-wrapper {
-        width: 100vw;
+        width: 100%;
         max-width: 1150px;
         margin: 0 auto;
         position: relative;
@@ -63,7 +64,8 @@
         list-style: none;
       }
       .user-item > a {
-        font-size: 12px;
+        font-size: 13px;
+        letter-spacing: -0.5px;
         text-decoration: none;
         padding: 6px 0;
         color: #666;
@@ -210,23 +212,154 @@
       }
       #main-wrapper {
         width: 100%;
-        height: 2083px;
+        /* height: 2083px; */
         padding: 30px 0 100px;
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
       }
-      #brand {
+      #brand-wrapper {
+        width: 1150px;
+        height: 34px;
+        padding: 0 20px;
+        margin: 0 auto;
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+        /* align-items: center; */
+        box-sizing: border-box;
+      }
+      #brand-name {
+        font-size: 25px;
+        font-weight: 500;
+        letter-spacing: -0.65px;
+        line-height: 34px;
+      }
+      #grs-structure {
+        /* width: 156px; */
+        height: 16px;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+      }
+      .home {
+        width: 16px;
+      }
+      #grs-structure > li {
+        display: flex;
+        align-items: center;
+        font-size: 13px;
+        font-weight: 350;
+        color: #666666;
+        gap: 8px;
+      }
+      #grs-structure > li > h3 {
+        vertical-align: top;
+        display: inline-block;
+        height: 16px;
+        line-height: 16px;
+        letter-spacing: -0.4px;
+      }
+      #main-content-wrapper {
+        width: 100%;
+        max-width: 1150px;
+        padding: 0 20px;
+        display: flex;
+      }
+      #main-content-left {
+        width: 382px;
+        padding: 40px 40px 0 0;
+      }
+      #brand-img {
+        height: 191px;
+        background-color: #f00028;
+        border-radius: 4px;
+        position: relative;
+      }
+      #brand-img > img {
+        position: absolute;
+      }
+      #ria-icon {
+        display: inline-block;
+        width: 70px;
+        height: 70px;
+        background-color: #f00028;
+        border: 5px solid white;
+        border-radius: 50%;
+        box-sizing: none;
+        position: absolute;
+        top: 80%;
+        left: 75%;
+        cursor: pointer;
+      }
+      #brand-info {
+        margin-top: 30px;
         display: flex;
         justify-content: space-between;
         align-items: center;
       }
-      #brand-name {
-        font-size: 26px;
+      #brand-info > a {
+        font-size: 21px;
         font-weight: 500;
+        letter-spacing: -1px;
+        text-decoration: none;
+        color: black;
+        cursor: pointer;
       }
-      #grs-structure {
-        list-style-type: none;
+      #brand-info > img {
+        padding-right: 6px;
+        cursor: pointer;
+      }
+      #brand-catchphrase {
+        margin-top: 10px;
+        padding: 0;
         display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+      #brand-catchphrase > h4 {
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: -0.5px;
+        color: #444444;
+        margin: 4px 0;
+      }
+      #brand-catchphrase > div {
+        font-size: 13px;
+        color: #444444;
+      }
+      #brand-btn-wrapper {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+      }
+      #brand-btn-wrapper > a {
+        width: calc(100% - 3px);
+        padding: 10px 8px;
+        margin-top: 10px;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: -0.65px;
+        color: black;
+        text-decoration: none;
+        border: 1px solid #80878d;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #brand-btn-wrapper > a > img {
+        margin-right: 10px;
+      }
+      #main-content-right {
       }
     </style>
   </head>
@@ -292,12 +425,15 @@
 
       <!-- Main -->
       <main id="main-wrapper">
-        <div id="brand">
+        <div id="brand-wrapper">
           <div id="brand-name">롯데리아</div>
           <ul id="grs-structure">
             <li>
               <a href="https://www.lotteeatz.com/eatzMain"
-                ><img src="img/comm_ico_breadcrumb_home.svg" alt=""
+                ><img
+                  class="home"
+                  src="img/comm_ico_breadcrumb_home.svg"
+                  alt=""
               /></a>
             </li>
             <li>
@@ -305,16 +441,49 @@
                 src="https://stat.lotteeatz.com/202507171420/assets/images/common/comm_ico_breadcrumb_divide.svg"
                 alt=""
               />
+              <span>브랜드</span>
             </li>
-            <li>브랜드</li>
             <li>
               <img
                 src="https://stat.lotteeatz.com/202507171420/assets/images/common/comm_ico_breadcrumb_divide.svg"
                 alt=""
               />
+              <span>롯데리아</span>
             </li>
-            <li>롯데리아</li>
           </ul>
+        </div>
+        <hr />
+        <div id="main-content-wrapper">
+          <div id="main-content-left">
+            <div id="brand-img">
+              <img id="ria-hamburger" src="/img/optimize.png" alt="롯데리아" />
+              <a href="#"
+                ><img
+                  id="ria-icon"
+                  src="/img/comm_ico_brand_lotteria.png"
+                  alt=""
+              /></a>
+            </div>
+            <div id="brand-info">
+              <a href="#">롯데리아</a>
+              <img src="/img/comm_ico_store_share.svg" alt="" />
+            </div>
+            <div id="brand-catchphrase">
+              <h4>TASTE THE FUN</h4>
+              <div>LOTTE EATZ에서 빠르고 편리하게 주문하세요.</div>
+            </div>
+            <div id="brand-btn-wrapper">
+              <a href="#">브랜드 소개</a>
+              <a href="#"
+                ><img
+                  id="search-icon"
+                  src="/img/comm_btn_ico_search.svg"
+                  alt="검색"
+                />매장찾기</a
+              >
+            </div>
+          </div>
+          <div id="main-content-right"></div>
         </div>
       </main>
 
