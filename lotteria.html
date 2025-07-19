@@ -27,6 +27,9 @@
         font-style: normal;
         /* background-color: white; */
       }
+      body {
+        overflow-x: hidden;
+      }
       /* whole-wrapper */
       #wrapper {
         width: 100vw;
@@ -71,7 +74,7 @@
         color: #666;
       }
 
-      hr {
+      #header-hr {
         position: absolute;
         width: 100vw;
         height: 1px;
@@ -213,7 +216,7 @@
       #main-wrapper {
         width: 100%;
         /* height: 2083px; */
-        padding: 30px 0 100px;
+        padding-top: 30px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -230,6 +233,7 @@
         justify-content: space-between;
         /* align-items: center; */
         box-sizing: border-box;
+        position: relative;
       }
       #brand-name {
         font-size: 25px;
@@ -266,15 +270,31 @@
         line-height: 16px;
         letter-spacing: -0.4px;
       }
+      #main-hr {
+        position: absolute;
+        width: 100vw;
+        height: 1px;
+        margin: 0;
+        border: none;
+        top: 64px;
+        left: 50%; /* 화면 중앙에서 시작 */
+        transform: translateX(
+          -50%
+        ); /* 왼쪽으로 자신의 너비의 절반만큼 이동해서 가운데 정렬 */
+        background-color: #e0dede;
+        z-index: -1;
+      }
       #main-content-wrapper {
         width: 100%;
         max-width: 1150px;
         padding: 0 20px;
         display: flex;
+        box-sizing: border-box;
       }
       #main-content-left {
         width: 382px;
         padding: 40px 40px 0 0;
+        border-right: 1px solid #e0dede;
       }
       #brand-img {
         height: 191px;
@@ -299,12 +319,13 @@
         cursor: pointer;
       }
       #brand-info {
-        margin-top: 30px;
+        margin-top: 26px;
         display: flex;
         justify-content: space-between;
         align-items: center;
       }
       #brand-info > a {
+        margin: 0;
         font-size: 21px;
         font-weight: 500;
         letter-spacing: -1px;
@@ -317,7 +338,7 @@
         cursor: pointer;
       }
       #brand-catchphrase {
-        margin-top: 10px;
+        margin-top: 5px;
         padding: 0;
         display: flex;
         flex-direction: column;
@@ -360,6 +381,167 @@
         margin-right: 10px;
       }
       #main-content-right {
+        width: 728px;
+        min-height: 707px;
+        padding-bottom: 100px;
+        box-sizing: border-box;
+      }
+      #main-right-inner {
+        width: 100%;
+        padding: 40px 0 0 40px;
+      }
+      #main-category-wrapper {
+        width: 100%;
+      }
+      #category-list {
+        height: 32px;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 7px;
+        vertical-align: top;
+      }
+      .category {
+        display: inline-block;
+        padding: 6px 14px;
+        list-style-type: none;
+        font-size: 12px;
+        font-weight: 400;
+        text-align: center;
+        color: #666666;
+        background-color: rgba(221, 224, 227, 0.4);
+        background-clip: padding-box;
+        border: 2px solid rgba(221, 224, 227, 0.4);
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      #chicken {
+        background-color: rgb(0, 165, 185);
+        background-clip: padding-box;
+        border: 2px solid rgba(0, 165, 185);
+        color: white;
+        font-weight: 500;
+      }
+      #selected-category {
+        margin: 30px 0 20px 0;
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: -0.8px;
+      }
+      #near-order-wrapper {
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #near-order-wrapper > a {
+        text-decoration: none;
+      }
+      #near-order-btn {
+        width: 200px;
+        height: 44px;
+        padding: 0 16px;
+        background-color: white;
+        border: 1px solid rgb(0, 165, 185);
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+      #near-order-btn:hover {
+        background-color: rgba(0, 165, 185, 0.1);
+      }
+      #near-order-btn > span {
+        color: #00a5b9;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: -0.8px;
+      }
+      #near-order-btn > img {
+        width: 18px;
+        height: 18px;
+        margin-left: 6px;
+      }
+      .product-list {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .product {
+        width: 216px;
+        height: 270px;
+      }
+      .product > a {
+        text-decoration: none;
+        color: black;
+      }
+      .prod-img {
+        width: 216px;
+        height: 216px;
+        border: 1px solid #ebe8e8;
+        border-radius: 4px;
+        object-fit: contain;
+      }
+      .prod-name {
+        margin: 6px 0;
+        font-size: 13px;
+        font-weight: 500;
+      }
+      .prod-price {
+        font-weight: 600;
+        line-height: 13px;
+      }
+      footer {
+        width: 100vw;
+        height: 382px;
+        padding: 0;
+        background-color: rgba(239, 241, 243, 0.4);
+        border-top: 1px solid rgba(223, 226, 229, 0.5);
+        display: flex;
+        justify-content: center;
+      }
+      #footer-inner {
+        width: 1150px;
+        background-color: rgb(226, 191, 166);
+        padding: 30px 20px;
+      }
+
+      #family-btn {
+        padding: 10px 15px;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: -0.5px;
+        border: 1px solid #e0dede;
+        border-radius: 4px;
+        background-color: white;
+        cursor: pointer;
+      }
+      #family-btn > span {
+        margin-right: 50px;
+      }
+      #footer-inner {
+        width: 910px;
+      }
+      #footer-left-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      #footer-menu {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        list-style-type: none;
+      }
+      #footer-menu > li {
+        display: block;
       }
     </style>
   </head>
@@ -374,7 +556,7 @@
             <li class="user-item"><a href="#">매장찾기</a></li>
           </ul>
         </div>
-        <hr />
+        <hr id="header-hr" />
         <div id="header-bottom">
           <div id="header-bottom-left">
             <a href="https://www.lotteeatz.com/eatzMain"
@@ -451,8 +633,8 @@
               <span>롯데리아</span>
             </li>
           </ul>
+          <hr id="main-hr" />
         </div>
-        <hr />
         <div id="main-content-wrapper">
           <div id="main-content-left">
             <div id="brand-img">
@@ -483,11 +665,183 @@
               >
             </div>
           </div>
-          <div id="main-content-right"></div>
+          <div id="main-content-right">
+            <div id="main-right-inner">
+              <div id="main-category-wrapper">
+                <ul id="category-list">
+                  <li class="category">추천메뉴</li>
+                  <li class="category">버거</li>
+                  <li class="category">디저트</li>
+                  <li id="chicken" class="category">치킨</li>
+                  <li class="category">음료</li>
+                  <li class="category">아이스샷</li>
+                </ul>
+              </div>
+              <div id="selected-category">치킨</div>
+              <div id="product-list-wrapper">
+                <ul class="product-list">
+                  <li class="product">
+                    <a href="#">
+                      <img
+                        class="prod-img"
+                        src="/img/wing.png"
+                        alt="제품 이미지"
+                      />
+                      <div class="prod-text-wrapper">
+                        <div class="prod-name">화이어윙</div>
+                        <div class="prod-price">3,200 원</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="product">
+                    <a href="#">
+                      <img
+                        class="prod-img"
+                        src="/img/fillet.png"
+                        alt="제품 이미지"
+                      />
+                      <div class="prod-text-wrapper">
+                        <div class="prod-name">치킨휠레</div>
+                        <div class="prod-price">3,100 원</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="product">
+                    <a href="#">
+                      <img
+                        class="prod-img"
+                        src="/img/drum.png"
+                        alt="제품 이미지"
+                      />
+                      <div class="prod-text-wrapper">
+                        <div class="prod-name">치킨 1조각</div>
+                        <div class="prod-price">2,900 원</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="product">
+                    <a href="#">
+                      <img
+                        class="prod-img"
+                        src="/img/boneless_half.png"
+                        alt="제품 이미지"
+                      />
+                      <div class="prod-text-wrapper">
+                        <div class="prod-name">순살치킨 하프팩(11조각)</div>
+                        <div class="prod-price">10,500 원</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="product">
+                    <a href="#">
+                      <img
+                        class="prod-img"
+                        src="/img/boneless_full.png"
+                        alt="제품 이미지"
+                      />
+                      <div class="prod-text-wrapper">
+                        <div class="prod-name">순살치킨 하프팩(22조각)</div>
+                        <div class="prod-price">17,500 원</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="product">
+                    <a href="#">
+                      <img
+                        class="prod-img"
+                        src="/img/drum_half.png"
+                        alt="제품 이미지"
+                      />
+                      <div class="prod-text-wrapper">
+                        <div class="prod-name">치킨다리 하프팩(4조각)</div>
+                        <div class="prod-price">10,900 원</div>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div id="near-order-wrapper">
+                <a href="#">
+                  <button id="near-order-btn">
+                    <span>주변 매장에서 주문</span>
+                    <img class="icon" src="img/comm_ico_mint_arr.svg" alt="" />
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
 
       <!-- Footer-->
+      <footer id="footer">
+        <div id="footer-inner">
+          <div id="footer-left-wrapper">
+            <ul id="footer-menu">
+              <li><a href="#">개인정보처리방침</a></li>
+              <li><a href="#">이용약관</a></li>
+              <li><a href="#">위치기반서비스 이용약관</a></li>
+              <li><a href="#">영상정보 처리기기 운영 및 관리 방침</a></li>
+              <li><a href="#">공지사항</a></li>
+              <li><a href="#">창업상담</a></li>
+              <li><a href="#">설정</a></li>
+            </ul>
+            <div class="footer-div">
+              <div class="footer-title">가맹점 모집</div>
+              <div class="footer-content">
+                <ul class="content-list">
+                  <li><a href="#">롯데리아</a></li>
+                  <li><a href="#">엔제리너스</a></li>
+                  <li><a href="#">크리스피크림 도넛</a></li>
+                  <li><a href="#">창업설명회 신청</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="footer-div">
+              <div class="footer-title">협력사 거래희망등록</div>
+              <div class="footer-content">
+                <ul class="content-list">
+                  <li><a href="#">납품제안</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="footer-div">
+              <div class="footer-title">롯데GRS 사업자정보</div>
+              <div class="footer-content">
+                <span>대표자: 차우철</span>
+                <span
+                  >주소: 서울시 송파구 백제고분로 217 LOTTE GRS 79 SQAURE</span
+                >
+                <span>사업자번호: 106-81-23498</span>
+                <span>통신판매번호: 용산 06463</span>
+                <span>사업자정보확인</span>
+              </div>
+            </div>
+            <div class="footer-div">
+              <div class="footer-title">문의처</div>
+              <div class="footer-content">
+                <span>본사 고객의 소리 운영시간: 평일 9시-18시</span>
+                <span>유선상담</span>
+                <span
+                  >일반문의/매장이용 불편사항 090-550-0005 (평일 9시-18시)</span
+                >
+                <span
+                  >모바일 쿠폰 오류, 환불 등 문의 사항은 구입처에섬나 유선 상담
+                  가능합니다.</span
+                >
+                <span>LOTTE EATZ앱 문의: 1600-0552 (평일 9시-18시)</span>
+                <span>일반 쿠폰(기프티엘): 1644-4276 (평일 9시30분-18시)</span>
+              </div>
+            </div>
+          </div>
+          <div id="footer-right-wrapper">
+            <button type="button" id="family-btn">
+              <span>Family Site</span>
+              <img src="/img/ui_ico_select_arr.svg" alt="" />
+            </button>
+          </div>
+        </div>
+      </footer>
     </div>
   </body>
 </html>
