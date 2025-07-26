@@ -12,538 +12,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="lotteria.css" />
     <title>롯데리아 클론</title>
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      body,
-      html {
-        margin: 0;
-        padding: 0;
-        width: 100vw;
-        font-size: 14px;
-        font-weight: 400;
-        font-style: normal;
-        /* background-color: white; */
-      }
-      body {
-        overflow-x: hidden;
-      }
-      /* whole-wrapper */
-      #wrapper {
-        width: 100vw;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        position: relative;
-      }
-      /* Header */
-      #header-wrapper {
-        width: 100%;
-        max-width: 1150px;
-        margin: 0 auto;
-        position: relative;
-      }
-      #header-top {
-        width: 100%;
-        height: 40px;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        padding: 5px 20px;
-      }
-      .user-menu {
-        margin: 0;
-        padding: 0;
-        display: flex;
-        gap: 20px;
-      }
-      .user-item {
-        display: inline-block;
-        height: 100%;
-        line-height: 30px;
-        list-style: none;
-      }
-      .user-item > a {
-        font-size: 13px;
-        letter-spacing: -0.5px;
-        text-decoration: none;
-        padding: 6px 0;
-        color: #666;
-      }
-
-      #header-hr {
-        position: absolute;
-        width: 100vw;
-        height: 1px;
-        margin: 0;
-        border: none;
-        left: 50%; /* 화면 중앙에서 시작 */
-        transform: translateX(
-          -50%
-        ); /* 왼쪽으로 자신의 너비의 절반만큼 이동해서 가운데 정렬 */
-        background-color: #e0dede;
-        z-index: -1;
-      }
-      #header-bottom {
-        width: 100%;
-        height: 90px;
-        border: none;
-        padding: 0 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-sizing: border-box;
-      }
-      #header-bottom-left {
-        height: 90px;
-        display: flex;
-        /* justify-content: flex-start; */
-        align-items: center;
-        gap: 30px;
-      }
-      #title-logo {
-        width: 72px;
-        height: 60px;
-        padding: 10px 0;
-        margin: 0;
-        object-fit: contain;
-        box-sizing: border-box;
-      }
-      #header-menu-ul {
-        display: flex;
-        margin: 0;
-        padding: 0;
-        width: 468px;
-        height: 48px;
-      }
-      #header-menu-ul * :hover {
-        cursor: pointer;
-        color: #00a5b9;
-      }
-      .header-menu-li {
-        /* width: 117px; */
-        height: 48px;
-        margin: 0;
-        padding: 0;
-        border: none;
-        list-style-type: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      /* 각 메뉴 버튼 */
-      .header-menu-btn {
-        width: 117px;
-        font-size: 20px;
-        font-weight: 550;
-        letter-spacing: -1px;
-        line-height: 48px;
-        border: none;
-        background-color: white;
-        padding: 0 30px;
-        white-space: nowrap;
-      }
-      #brand-btn {
-        color: #00a5b9;
-      }
-      #header-bottom-right {
-        flex-grow: 1;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 10px;
-      }
-      #header-util-icon {
-        width: 68px;
-        height: 24px;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      #header-util-icon > li {
-        list-style-type: none;
-        /* display: flex;
-        justify-content: center;
-        align-items: center; */
-      }
-      #header-util-icon > li > a {
-        display: inline;
-        font-size: 24px;
-        text-decoration: none;
-        color: #444444;
-      }
-      #header-util-icon > li:nth-of-type(1) > a {
-        width: 30px;
-        padding-right: 6px;
-      }
-      #header-util-icon > li:nth-of-type(2) > a {
-        width: 38px;
-        padding-left: 14px;
-      }
-      .icon {
-        width: 24px;
-        height: 24px;
-      }
-      #order-btn {
-        width: 115px;
-        height: 44px;
-        padding: 18px 0;
-        margin-left: 16px;
-        background-color: #00a5b9;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: 1px solid #00a5b9;
-        border-radius: 22px;
-        box-shadow: 0 5px 10px rgba(0, 165, 186, 0.3);
-      }
-      #order-btn > img {
-        width: 24px;
-        height: 24px;
-        margin-right: 6px;
-      }
-      #order-btn > span {
-        color: white;
-        font-size: 14px;
-        font-weight: 500;
-        letter-spacing: -1px;
-      }
-      #main-wrapper {
-        width: 100%;
-        /* height: 2083px; */
-        padding-top: 30px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-      }
-      #brand-wrapper {
-        width: 1150px;
-        height: 34px;
-        padding: 0 20px;
-        margin: 0 auto;
-        margin-bottom: 30px;
-        display: flex;
-        justify-content: space-between;
-        /* align-items: center; */
-        box-sizing: border-box;
-        position: relative;
-      }
-      #brand-name {
-        font-size: 25px;
-        font-weight: 500;
-        letter-spacing: -0.65px;
-        line-height: 34px;
-      }
-      #grs-structure {
-        /* width: 156px; */
-        height: 16px;
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-      }
-      .home {
-        width: 16px;
-      }
-      #grs-structure > li {
-        display: flex;
-        align-items: center;
-        font-size: 13px;
-        font-weight: 350;
-        color: #666666;
-        gap: 8px;
-      }
-      #grs-structure > li > h3 {
-        vertical-align: top;
-        display: inline-block;
-        height: 16px;
-        line-height: 16px;
-        letter-spacing: -0.4px;
-      }
-      #main-hr {
-        position: absolute;
-        width: 100vw;
-        height: 1px;
-        margin: 0;
-        border: none;
-        top: 64px;
-        left: 50%; /* 화면 중앙에서 시작 */
-        transform: translateX(
-          -50%
-        ); /* 왼쪽으로 자신의 너비의 절반만큼 이동해서 가운데 정렬 */
-        background-color: #e0dede;
-        z-index: -1;
-      }
-      #main-content-wrapper {
-        width: 100%;
-        max-width: 1150px;
-        padding: 0 20px;
-        display: flex;
-        box-sizing: border-box;
-      }
-      #main-content-left {
-        width: 382px;
-        padding: 40px 40px 0 0;
-        border-right: 1px solid #e0dede;
-      }
-      #brand-img {
-        height: 191px;
-        background-color: #f00028;
-        border-radius: 4px;
-        position: relative;
-      }
-      #brand-img > img {
-        position: absolute;
-      }
-      #ria-icon {
-        display: inline-block;
-        width: 70px;
-        height: 70px;
-        background-color: #f00028;
-        border: 5px solid white;
-        border-radius: 50%;
-        box-sizing: none;
-        position: absolute;
-        top: 80%;
-        left: 75%;
-        cursor: pointer;
-      }
-      #brand-info {
-        margin-top: 26px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      #brand-info > a {
-        margin: 0;
-        font-size: 21px;
-        font-weight: 500;
-        letter-spacing: -1px;
-        text-decoration: none;
-        color: black;
-        cursor: pointer;
-      }
-      #brand-info > img {
-        padding-right: 6px;
-        cursor: pointer;
-      }
-      #brand-catchphrase {
-        margin-top: 5px;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-      }
-      #brand-catchphrase > h4 {
-        font-size: 16px;
-        font-weight: 500;
-        letter-spacing: -0.5px;
-        color: #444444;
-        margin: 4px 0;
-      }
-      #brand-catchphrase > div {
-        font-size: 13px;
-        color: #444444;
-      }
-      #brand-btn-wrapper {
-        margin-top: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 6px;
-      }
-      #brand-btn-wrapper > a {
-        width: calc(100% - 3px);
-        padding: 10px 8px;
-        margin-top: 10px;
-        font-size: 14px;
-        font-weight: 500;
-        letter-spacing: -0.65px;
-        color: black;
-        text-decoration: none;
-        border: 1px solid #80878d;
-        border-radius: 4px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      #brand-btn-wrapper > a > img {
-        margin-right: 10px;
-      }
-      #main-content-right {
-        width: 728px;
-        min-height: 707px;
-        padding-bottom: 100px;
-        box-sizing: border-box;
-      }
-      #main-right-inner {
-        width: 100%;
-        padding: 40px 0 0 40px;
-      }
-      #main-category-wrapper {
-        width: 100%;
-      }
-      #category-list {
-        height: 32px;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 7px;
-        vertical-align: top;
-      }
-      .category {
-        display: inline-block;
-        padding: 6px 14px;
-        list-style-type: none;
-        font-size: 12px;
-        font-weight: 400;
-        text-align: center;
-        color: #666666;
-        background-color: rgba(221, 224, 227, 0.4);
-        background-clip: padding-box;
-        border: 2px solid rgba(221, 224, 227, 0.4);
-        border-radius: 4px;
-        cursor: pointer;
-      }
-      #chicken {
-        background-color: rgb(0, 165, 185);
-        background-clip: padding-box;
-        border: 2px solid rgba(0, 165, 185);
-        color: white;
-        font-weight: 500;
-      }
-      #selected-category {
-        margin: 30px 0 20px 0;
-        font-size: 18px;
-        font-weight: 500;
-        letter-spacing: -0.8px;
-      }
-      #near-order-wrapper {
-        margin-top: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      #near-order-wrapper > a {
-        text-decoration: none;
-      }
-      #near-order-btn {
-        width: 200px;
-        height: 44px;
-        padding: 0 16px;
-        background-color: white;
-        border: 1px solid rgb(0, 165, 185);
-        border-radius: 4px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-      }
-      #near-order-btn:hover {
-        background-color: rgba(0, 165, 185, 0.1);
-      }
-      #near-order-btn > span {
-        color: #00a5b9;
-        font-size: 14px;
-        font-weight: 500;
-        letter-spacing: -0.8px;
-      }
-      #near-order-btn > img {
-        width: 18px;
-        height: 18px;
-        margin-left: 6px;
-      }
-      .product-list {
-        padding: 0;
-        margin: 0;
-        list-style-type: none;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 20px;
-      }
-      .product {
-        width: 216px;
-        height: 270px;
-      }
-      .product > a {
-        text-decoration: none;
-        color: black;
-      }
-      .prod-img {
-        width: 216px;
-        height: 216px;
-        border: 1px solid #ebe8e8;
-        border-radius: 4px;
-        object-fit: contain;
-      }
-      .prod-name {
-        margin: 6px 0;
-        font-size: 13px;
-        font-weight: 500;
-      }
-      .prod-price {
-        font-weight: 600;
-        line-height: 13px;
-      }
-      footer {
-        width: 100vw;
-        height: 382px;
-        padding: 0;
-        background-color: rgba(239, 241, 243, 0.4);
-        border-top: 1px solid rgba(223, 226, 229, 0.5);
-        display: flex;
-        justify-content: center;
-      }
-      #footer-inner {
-        width: 1150px;
-        background-color: rgb(226, 191, 166);
-        padding: 30px 20px;
-      }
-
-      #family-btn {
-        padding: 10px 15px;
-        font-size: 14px;
-        font-weight: 500;
-        letter-spacing: -0.5px;
-        border: 1px solid #e0dede;
-        border-radius: 4px;
-        background-color: white;
-        cursor: pointer;
-      }
-      #family-btn > span {
-        margin-right: 50px;
-      }
-      #footer-inner {
-        width: 910px;
-      }
-      #footer-left-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      #footer-menu {
-        padding: 0;
-        margin: 0;
-        display: flex;
-        list-style-type: none;
-      }
-      #footer-menu > li {
-        display: block;
-      }
-    </style>
   </head>
   <body>
     <div id="wrapper">
@@ -798,7 +268,7 @@
               </div>
             </div>
             <div class="footer-div">
-              <div class="footer-title">협력사 거래희망등록</div>
+              <div class="footer-title align-start">협력사 거래희망등록</div>
               <div class="footer-content">
                 <ul class="content-list">
                   <li><a href="#">납품제안</a></li>
@@ -806,31 +276,48 @@
               </div>
             </div>
             <div class="footer-div">
-              <div class="footer-title">롯데GRS 사업자정보</div>
+              <div class="footer-title align-start">롯데GRS 사업자정보</div>
               <div class="footer-content">
-                <span>대표자: 차우철</span>
-                <span
-                  >주소: 서울시 송파구 백제고분로 217 LOTTE GRS 79 SQAURE</span
-                >
-                <span>사업자번호: 106-81-23498</span>
-                <span>통신판매번호: 용산 06463</span>
-                <span>사업자정보확인</span>
+                <div class="info-row">
+                  <span>대표자 : 차우철</span>
+                  <span
+                    >주소 : 서울시 송파구 백제고분로 217 LOTTE GRS 79
+                    SQAURE</span
+                  >
+                  <span>사업자번호 : 106-81-23498</span>
+                </div>
+                <div class="info-row">
+                  <span>통신판매번호 : 용산 06463</span>
+                  <a
+                    href="https://www.ftc.go.kr/bizCommPop.do?wrkr_no=1068123498"
+                    >사업자정보확인</a
+                  >
+                </div>
               </div>
             </div>
             <div class="footer-div">
               <div class="footer-title">문의처</div>
               <div class="footer-content">
-                <span>본사 고객의 소리 운영시간: 평일 9시-18시</span>
-                <span>유선상담</span>
-                <span
-                  >일반문의/매장이용 불편사항 090-550-0005 (평일 9시-18시)</span
-                >
-                <span
-                  >모바일 쿠폰 오류, 환불 등 문의 사항은 구입처에섬나 유선 상담
-                  가능합니다.</span
-                >
-                <span>LOTTE EATZ앱 문의: 1600-0552 (평일 9시-18시)</span>
-                <span>일반 쿠폰(기프티엘): 1644-4276 (평일 9시30분-18시)</span>
+                <div class="info-row">
+                  <span>본사 고객의 소리 운영시간 : 평일 9시-18시</span>
+                  <span>유선상담</span>
+                  <span
+                    >일반문의/매장이용 불편사항 090-550-0005 (평일
+                    9시-18시)</span
+                  >
+                </div>
+                <div class="info-row">
+                  <span
+                    >모바일 쿠폰 오류, 환불 등 문의 사항은 구입처에서나 유선
+                    상담 가능합니다.</span
+                  >
+                  <span>LOTTE EATZ앱 문의: 1600-0552 (평일 9시-18시)</span>
+                </div>
+                <div class="info-row">
+                  <span
+                    >일반 쿠폰(기프티엘): 1644-4276 (평일 9시30분-18시)</span
+                  >
+                </div>
               </div>
             </div>
           </div>
